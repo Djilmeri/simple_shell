@@ -1,0 +1,3 @@
+Simple Shell project
+A Simple Shell is a text-based interface that allows users to interact with an operating system by entering text commands.It reads, analuzer, and executes these commands while providing basic features such as navigating directories, error management, built-in commands history, input redirection, and sometimes, pipes Although not as powerful as advanced shells like Bash or PowerShell, a simpel shell is a useful educatioel tool for uderstanding the fudamental principles of operaating systeme and system programming.
+It can be designed in variour programming languages and provides a strog foundatio for learning how commands are processed and executed in a terminal environment.

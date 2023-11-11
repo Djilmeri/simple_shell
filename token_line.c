@@ -16,8 +16,10 @@ char **token_line(char *line_cmd)
 	token = strtok(t, DELIM);
 	if (token == NULL)
 	{
-		free(line_cmd), line_cmd = NULL;
-		free(t), t = NULL;
+		free(line_cmd);
+		line_cmd = NULL;
+		free(t);
+		t = NULL;
 		return (NULL);
 	}
 	while (token)
@@ -25,7 +27,8 @@ char **token_line(char *line_cmd)
 		compt++;
 		token = strtok(NULL, DELIM);
 	}
-	free(t), t = NULL;
+	free(t);
+	t = NULL;
 	command_line = malloc(sizeof(char *) * (compt + 1));
 	if (!command_line)
 	{
@@ -34,10 +37,11 @@ char **token_line(char *line_cmd)
 		return (NULL);
 	}
 	token = strtok(line_cmd, DELIM);
-	for (i = 0; token != NULL; i++)
+	while (token)
 	{
-		strcpy(command_line[i], token);
+		command_line[i] = token;
 		token = strtok(NULL, DELIM);
+		i++;
 	}
 	free(line_cmd);
 	line_cmd = NULL;

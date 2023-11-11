@@ -23,5 +23,10 @@ char *string_cat(char *dst, char *sc);
 char *string_cpy(char *dst, char *sc);
 char **token_line(char *line_cmd);
 void array_string(char **array);
-int _Execute_line(char **command_line, char **arg);
+int _Execute_line(char **command_line, char **arg, int index);
+char *_Get_Env(char *var_env);
+char *_Get_Path(char *command);
+void print_ero(char *name, char *command, int index);
+char *_it_oa(int n);
+void inverse_string(char *string, int car);
 #endif

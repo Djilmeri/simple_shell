@@ -18,7 +18,7 @@ char *string_cat(char *dst, char *sc)
 		d++;
 		sc++;
 	}
-	*d = *sc;
+	*d = '\0';
 	return (dst);
 }
 /**
@@ -36,7 +36,7 @@ char *string_cpy(char *dst, char *sc)
 		dst[i] = sc[i];
 		i++;
 	}
-	dst[i] = sc[i];
+	dst[i] = '\0';
 	return (dst);
 }
 /**
@@ -83,22 +83,16 @@ char *string_dupl(const char *str)
 	char *p;
 	int i = 0, l = 0;
 
-	if (!str)
+	if (str == NULL)
 		return (NULL);
-	while (*str != '\0')
-	{
+	while (str[l])
 		l++;
-		str++;
-	}
-	str = str - l;
+	
 	p = malloc(sizeof(char) * (l + 1));
-	if (!p)
+	if (p == NULL)
 		return (NULL);
-	while (i <= l)
-	{
+	for (i = 0; i <= l; i++)
 		p[i] = str[i];
-		return (p);
-		i++;
-	}
+	
 	return (p);
 }

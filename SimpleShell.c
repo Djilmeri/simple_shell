@@ -9,7 +9,7 @@
 int main(int ca, char **arg)
 {
 	char *line_cmd = NULL, **command_line = NULL;
-	int stat = 0;
+	int stat = 0, idx = 0;
 
 	(void)ca;
 
@@ -20,15 +20,14 @@ int main(int ca, char **arg)
 		{
 			if (isatty(STDIN_FILENO))
 				write(STDOUT_FILENO, "\n", 1);
-					
+
 					return (stat);
-					
 					}
-					free(line_cmd);
+		idx++;
 		command_line = token_line(line_cmd);
-		if (command_line == NULL)
+		if (!command_line)
 		continue;
 
-		stat = _Execute_line(command_line, arg);
+		stat = _Execute_line(command_line, arg, idx);
 	}
 }

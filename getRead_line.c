@@ -13,6 +13,7 @@ char *getRead_line(void)
 	if (getline(&line_cmd, &l_user, stdin) == -1)
 	{
 		free(line_cmd);
+		line_cmd = NULL;
 		return (NULL);
 	}
 	return (line_cmd);

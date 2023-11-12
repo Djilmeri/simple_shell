@@ -29,4 +29,10 @@ char *_Get_Path(char *command);
 void print_ero(char *name, char *command, int index);
 char *_it_oa(int n);
 void inverse_string(char *string, int car);
+int positive_nbr(char *string_nbr);
+int at_oi(char *string_nbr);
+int _is_built(char *command);
+void hand_built(char **command, char **arg, int *stat, int index);
+void exit_shell(char **command, char **arg, int *stat, int index);
+void print_ev(char **command, int *stat);
 #endif

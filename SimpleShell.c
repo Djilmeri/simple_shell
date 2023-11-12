@@ -3,7 +3,6 @@
  * main - main argument functions
  *@ca: count of arguments
  *@arg: arguments
- *@evt: environment
  *Return: _exit = 0.
  */
 int main(int ca, char **arg)
@@ -28,6 +27,9 @@ int main(int ca, char **arg)
 		if (!command_line)
 		continue;
 
+		if (_is_built(command_line[0]))
+			hand_built(command_line, arg, &stat, idx);
+		else
 		stat = _Execute_line(command_line, arg, idx);
 	}
 }

@@ -12,14 +12,13 @@ char **token_line(char *line_cmd)
 
 	if (!line_cmd)
 		return (NULL);
-	t = strdup(line_cmd);
+	t = string_dupl(line_cmd);
+
 	token = strtok(t, DELIM);
 	if (token == NULL)
 	{
-		free(line_cmd);
-		line_cmd = NULL;
-		free(t);
-		t = NULL;
+		free(line_cmd), line_cmd = NULL;
+		free(t), t = NULL;
 		return (NULL);
 	}
 	while (token)
@@ -27,19 +26,17 @@ char **token_line(char *line_cmd)
 		compt++;
 		token = strtok(NULL, DELIM);
 	}
-	free(t);
-	t = NULL;
+	free(t), t = NULL;
 	command_line = malloc(sizeof(char *) * (compt + 1));
 	if (!command_line)
 	{
-		free(line_cmd);
-		line_cmd = NULL;
+		free(line_cmd), line_cmd = NULL;
 		return (NULL);
 	}
 	token = strtok(line_cmd, DELIM);
 	while (token)
 	{
-		command_line[i] = token;
+		command_line[i] = string_dupl(token);
 		token = strtok(NULL, DELIM);
 		i++;
 	}
